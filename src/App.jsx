@@ -4,10 +4,13 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  return(
   <>
     <h1>Airbnc</h1>
+    <button>Show me Properties</button>
 
   </>
+  )
 }
 
 export default App
