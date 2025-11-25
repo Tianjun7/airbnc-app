@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Header from "../components/Header"
+import { Routes,Route } from "react-router"
 import './App.css'
 
 function App() {
   return(
   <>
-    <h1>Airbnc</h1>
-    <button>Show me Properties</button>
-
+    <Header />
+    <Routes>
+      <Route> path="/properties" </Route>
+    </Routes>
   </>
   )
 }
