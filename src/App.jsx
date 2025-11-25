@@ -1,15 +1,16 @@
-import Header from "../components/Homepage"
-import { Routes,Route } from "react-router"
+import Homepage from "../pages/Homepage"
+import Properties from "../pages/Properties"
+import { Routes, Route } from "react-router"
 import './App.css'
 
 function App() {
   return(
-  <>
-    <Header />
+    
     <Routes>
-      <Route> path="/properties" </Route>
+      <Route path="/" element={<Homepage/>}/>
+      <Route path="/properties" element={<Properties/>}/>
     </Routes>
-  </>
+    
   )
 }
 
