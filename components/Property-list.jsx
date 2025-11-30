@@ -1,7 +1,13 @@
-export default function Propertylist(){
+export default function Propertylist({ properties }){
+    
     return (
-    <>
-        <h1>Property list</h1>
-    </>
+    <div>
+        
+        <ul>
+        {properties.map((property) => {
+            return <li key={property}>{property}</li>
+        })}
+        </ul>
+    </div>
     )
 }

@@ -1,13 +1,37 @@
 import Filter from "../components/Filter"
 import Homebutton from "../components/Home-button"
 import Propertylist from "../components/Property-list"
+import { useState, useEffect } from "react"
+import axios from "axios"
+import { getProperties } from "../src/api"
 
-export default function properties(){
+export default function Properties(){
+    const [properties, setProperties] = useState([])
+    const [isLoadng, setIsLoading] = useState(true)
+    const [hasErrored, setHasErrored] = useState(null)
+
+    const fetchProperties = async () => {
+        try{
+            const properties = await getProperties()
+    
+            setProperties(properties)
+            setIsLoading(false)
+        }
+        catch(err){
+            setHasErrored(err)
+            setIsLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        fetchProperties()
+    },[])
+
     return(
         <>
-            <Homebutton></Homebutton>
-            <Filter></Filter>
-            <Propertylist></Propertylist>
+            <Homebutton />
+            <Filter />
+            {isLoadng ? <p>loading...</p>: <Propertylist properties={properties} />}
         </>
     )
 }
