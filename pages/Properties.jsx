@@ -2,7 +2,6 @@ import Filter from "../components/Filter"
 import Homebutton from "../components/Home-button"
 import Propertylist from "../components/Property-list"
 import { useState, useEffect } from "react"
-import axios from "axios"
 import { getProperties } from "../src/api"
 
 export default function Properties(){

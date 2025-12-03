@@ -1,10 +1,12 @@
+import Propertycard from "./Property-card"
+
 export default function Propertylist({ properties }){
     
     return (
     <div>
         <ul>
         {properties.map((property) => {
-            return <li key={property.property_id}>{property.property_name}</li>
+            return <Propertycard property={property} key={property.property_id}></Propertycard>
         })}
         </ul>
     </div>
