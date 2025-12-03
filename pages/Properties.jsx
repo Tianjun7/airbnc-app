@@ -6,7 +6,7 @@ import { getProperties } from "../src/api"
 
 export default function Properties(){
     const [properties, setProperties] = useState([])
-    const [isLoadng, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [hasErrored, setHasErrored] = useState(null)
 
     const fetchProperties = async () => {
@@ -30,7 +30,7 @@ export default function Properties(){
         <>
             <Homebutton />
             <Filter />
-            {isLoadng ? <p>loading...</p>: <Propertylist properties={properties} />}
+            {isLoading ? <p>loading...</p>: <Propertylist properties={properties} />}
         </>
     )
 }

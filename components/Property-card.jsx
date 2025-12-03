@@ -1,8 +1,8 @@
 import { Link } from "react-router"
 
 export default function Propertycard({ property }){
-    console.log(property)
-    const propertyLink = `/property/${property.property_id}`
+    
+    const propertyLink = `/properties/${property.property_id}`
     return(
         <>
             <div className="image">
