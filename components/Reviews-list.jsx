@@ -1,7 +1,6 @@
 import Reviewcard from "./Review-card"
 
 export default function Reviewslist( {reviews} ) {
-    console.log(reviews)
     return(
         <ul>
             {reviews.map((review) => {

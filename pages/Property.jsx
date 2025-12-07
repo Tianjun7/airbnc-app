@@ -1,10 +1,8 @@
 import { getProperty, getReviews } from "../src/api"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router"
-import Images from "../components/Images"
-import Reviews from "../components/Reviews-list"
 import Reviewslist from "../components/Reviews-list"
-
+import Slider from "../components/Slider"
 
 export default function Property(){
     const [property, setProperty] = useState()
@@ -13,7 +11,6 @@ export default function Property(){
     const [hasErrored, setHasErrored] = useState(null)
 
     const { id } = useParams();
-    console.log(id)
 
     const fetchProperty = async () => {
         try{
@@ -42,14 +39,16 @@ export default function Property(){
         fetchReviews()
     },[id])
 
-    console.log(reviews)
-
     if (isLoading) return <p>Loading...</p>;
     if (hasErrored) return <p>Error loading property.</p>;
     if (!property) return null;
 
     return(
         <>
+            <div className="image-slider">
+                <Slider images={property.images}/>
+            </div>
+
             <div className="info">
                 <h1>{property.property_name}</h1>
                 <p>{property.location}</p>
@@ -57,7 +56,7 @@ export default function Property(){
                 <p>{property.host}</p>         
             </div>
 
-            <div>
+            <div className="reviews">
                 <h2>Reviews:</h2>
                 <Reviewslist reviews={reviews} />
             </div>
