@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router"
 import Reviewslist from "../components/Reviews-list"
 import Slider from "../components/Slider"
+import Homebutton from "../components/Home-button"
 
 export default function Property(){
     const [property, setProperty] = useState()
@@ -45,6 +46,9 @@ export default function Property(){
 
     return(
         <>
+            <div className="homebutton">
+                <Homebutton />
+            </div>
             <div className="image-slider">
                 <Slider images={property.images}/>
             </div>
