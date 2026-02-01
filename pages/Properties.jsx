@@ -2,6 +2,7 @@ import Filter from "../components/Filter"
 import Sort from "../components/Sort"
 import Homebutton from "../components/Home-button"
 import Propertylist from "../components/Property-list"
+import Clearfilter from "../components/Clear-filter"
 import { useState, useEffect } from "react"
 import { getProperties } from "../src/api"
 
@@ -34,6 +35,7 @@ export default function Properties(){
             <Homebutton />
             <Filter />
             <Sort />
+            <Clearfilter />
             {isLoading ? <p>loading...</p>: <Propertylist properties={properties} />}
         </>
     )
