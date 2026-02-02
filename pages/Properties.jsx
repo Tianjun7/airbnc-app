@@ -35,7 +35,11 @@ export default function Properties(){
             <Homebutton />
             <Filter />
             <Sort />
-            <Clearfilter />
+            <Clearfilter clear = {() => {
+                setFilters(null)
+                setSortBy(null)
+                console.log("clear")
+            }}/>
             {isLoading ? <p>loading...</p>: <Propertylist properties={properties} />}
         </>
     )
