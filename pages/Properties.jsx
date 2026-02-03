@@ -34,10 +34,18 @@ export default function Properties(){
         <>
             <Homebutton />
             <Filter />
-            <Sort />
+            <Sort 
+            priceAsc={() => {
+                setSortBy(1)
+            }}
+            priceDesc={() => {
+                setSortBy(2)
+            }}
+            />
             <Clearfilter clear = {() => {
-                setFilters(null)
-                setSortBy(null)
+                console.log(sortBy)
+                setFilters()
+                setSortBy()
                 console.log("clear")
             }}/>
             {isLoading ? <p>loading...</p>: <Propertylist properties={properties} />}
