@@ -9,6 +9,8 @@ export default function Filter(){
                     <input id="max-price" type="text" />
                     <label htmlFor="min-price">Min price</label>
                     <input id="min-price" type="text" />
+                    <label htmlFor="property-type">Property Type</label>
+                    <input id="property-type" type="text"/>
                 </form>
             </Toggle>
         </div>
