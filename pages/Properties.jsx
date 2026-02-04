@@ -13,7 +13,7 @@ export default function Properties(){
     const [sortBy, setSortBy] = useState("")
     const [filters, setFilters] = useState("")
 
-    const fetchProperties = async () => {
+    const fetchProperties = async (sortBy) => {
         try{
             const properties = await getProperties(sortBy)
     
@@ -27,8 +27,8 @@ export default function Properties(){
     }
 
     useEffect(() => {
-        fetchProperties()
-    },[])
+        fetchProperties(sortBy)
+    },[sortBy])
 
     return(
         <>
@@ -43,9 +43,8 @@ export default function Properties(){
             }}
             />
             <Clearfilter clear = {() => {
-                console.log(sortBy)
-                setFilters()
-                setSortBy()
+                setFilters("")
+                setSortBy("")
                 console.log("clear")
             }}/>
             {isLoading ? <p>loading...</p>: <Propertylist properties={properties} />}

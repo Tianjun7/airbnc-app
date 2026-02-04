@@ -5,6 +5,7 @@ export const getProperties = async(sortBy) => {
         const { 
             data: { properties }, 
         } = await axios.get("https://airbnc-6t74.onrender.com/api/properties")
+        console.log(1)
 
         return properties;
     }
@@ -12,6 +13,7 @@ export const getProperties = async(sortBy) => {
         const { 
             data: { properties }, 
         } = await axios.get("https://airbnc-6t74.onrender.com/api/properties?sortby=price_per_night&order=ASC")
+        console.log(2)
 
         return properties;
     }
@@ -19,6 +21,7 @@ export const getProperties = async(sortBy) => {
         const { 
             data: { properties }, 
         } = await axios.get("https://airbnc-6t74.onrender.com/api/properties?sortby=price_per_night&order=DESC")
+        console.log(3)
 
         return properties;
     }
