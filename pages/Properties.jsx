@@ -10,12 +10,12 @@ export default function Properties(){
     const [properties, setProperties] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [hasErrored, setHasErrored] = useState(null)
-    const [sortBy, setSortBy] = useState()
-    const [filters, setFilters] = useState()
+    const [sortBy, setSortBy] = useState("")
+    const [filters, setFilters] = useState("")
 
     const fetchProperties = async () => {
         try{
-            const properties = await getProperties()
+            const properties = await getProperties(sortBy)
     
             setProperties(properties)
             setIsLoading(false)
@@ -36,10 +36,10 @@ export default function Properties(){
             <Filter />
             <Sort 
             priceAsc={() => {
-                setSortBy(1)
+                setSortBy("priceASC")
             }}
             priceDesc={() => {
-                setSortBy(2)
+                setSortBy("priceDESC")
             }}
             />
             <Clearfilter clear = {() => {

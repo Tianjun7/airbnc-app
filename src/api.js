@@ -1,11 +1,27 @@
 import axios from "axios"
 
-export const getProperties = async() => {
-    const { 
+export const getProperties = async(sortBy) => {
+    if(sortBy.length === 0){
+        const { 
             data: { properties }, 
         } = await axios.get("https://airbnc-6t74.onrender.com/api/properties")
 
-    return properties;
+        return properties;
+    }
+    else if(sortBy === "priceASC"){
+        const { 
+            data: { properties }, 
+        } = await axios.get("https://airbnc-6t74.onrender.com/api/properties?sortby=price_per_night&order=ASC")
+
+        return properties;
+    }
+    else if(sortBy === "priceDESC"){
+        const { 
+            data: { properties }, 
+        } = await axios.get("https://airbnc-6t74.onrender.com/api/properties?sortby=price_per_night&order=DESC")
+
+        return properties;
+    }
 } 
 
 export const getProperty = async(id) => {
