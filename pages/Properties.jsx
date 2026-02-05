@@ -41,6 +41,9 @@ export default function Properties(){
             priceDesc={() => {
                 setSortBy("priceDESC")
             }}
+            reset={() => {
+                setSortBy("")
+            }}
             />
             <Clearfilter clear = {() => {
                 setFilters("")
