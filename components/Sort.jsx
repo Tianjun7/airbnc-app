@@ -1,5 +1,3 @@
-import Toggle from "./Toggle"
-
 export default function Sort({priceAsc, priceDesc}){
     return(
         <div className="Sort">
