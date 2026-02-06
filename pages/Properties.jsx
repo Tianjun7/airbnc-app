@@ -11,7 +11,7 @@ export default function Properties(){
     const [isLoading, setIsLoading] = useState(true)
     const [hasErrored, setHasErrored] = useState(null)
     const [sortBy, setSortBy] = useState("")
-    const [filters, setFilters] = useState("")
+    const [filters, setFilters] = useState({})
 
     const fetchProperties = async (sortBy) => {
         try{
@@ -47,7 +47,6 @@ export default function Properties(){
             />
             <Clearfilter clear = {() => {
                 setFilters("")
-                setSortBy("")
                 console.log("clear")
             }}/>
             {isLoading ? <p>loading...</p>: <Propertylist properties={properties} />}
