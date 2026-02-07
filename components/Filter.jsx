@@ -18,11 +18,31 @@ export default function Filter(){
         <>
             <Toggle>
                 <label> 
-                    maxPrice
+                    Max Price: 
                     <input 
-                    type="text"
+                    type="number"
                     name="maxPrice"
                     value={filterSet.maxPrice}
+                    onChange={handleChange}
+                    />
+                </label>
+
+                <label> 
+                    Min Price:
+                    <input 
+                    type="number"
+                    name="minPrice"
+                    value={filterSet.minPrice}
+                    onChange={handleChange}
+                    />
+                </label>
+
+                <label> 
+                    Property Type:
+                    <input 
+                    type="text"
+                    name="propertyType"
+                    value={filterSet.propertyType}
                     onChange={handleChange}
                     />
                 </label>
