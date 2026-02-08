@@ -2,17 +2,9 @@ import Toggle from "./Toggle"
 import { useState } from "react"
 
 export default function Filter(){
-    const [filterSet, setFilterSet] = useState({
-        maxPrice: 0, minPrice: 0, propertyType: ""
-    })
-    const handleChange = (e) => {
-        const value = e.target.value
-        setFilterSet({
-            ...filterSet,
-            [e.target.name]: value
-        })
-        console.log(filterSet)
-    }
+    const [maxPrice, setMaxPrice] = useState()
+    const [minPrice, setMinPrice] = useState()
+    const [propertyType, setPropertyType] = useState()
 
     return(
         <>
@@ -22,7 +14,7 @@ export default function Filter(){
                     <input 
                     type="number"
                     name="maxPrice"
-                    value={filterSet.maxPrice}
+                    value={maxPrice}
                     onChange={handleChange}
                     />
                 </label>
@@ -32,7 +24,7 @@ export default function Filter(){
                     <input 
                     type="number"
                     name="minPrice"
-                    value={filterSet.minPrice}
+                    value={minPrice}
                     onChange={handleChange}
                     />
                 </label>
@@ -42,7 +34,7 @@ export default function Filter(){
                     <input 
                     type="text"
                     name="propertyType"
-                    value={filterSet.propertyType}
+                    value={propertyType}
                     onChange={handleChange}
                     />
                 </label>
