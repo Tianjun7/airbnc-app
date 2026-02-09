@@ -3,6 +3,7 @@ import Sort from "../components/Sort"
 import Homebutton from "../components/Home-button"
 import Propertylist from "../components/Property-list"
 import Clearfilter from "../components/Clear-filter"
+import Toggle from "../components/Toggle"
 import { useState, useEffect } from "react"
 import { getProperties } from "../src/api"
 
@@ -26,6 +27,10 @@ export default function Properties(){
         }
     }
 
+    const setFilterSet = (filterSet) => {
+        setFilters(filterSet)
+    }
+
     useEffect(() => {
         fetchProperties(sortBy)
     },[sortBy])
@@ -33,22 +38,24 @@ export default function Properties(){
     return(
         <>
             <Homebutton />
-            <Filter />
-            <Sort 
-            priceAsc={() => {
-                setSortBy("priceASC")
-            }}
-            priceDesc={() => {
-                setSortBy("priceDESC")
-            }}
-            reset={() => {
-                setSortBy("")
-            }}
-            />
-            <Clearfilter clear = {() => {
-                setFilters("")
-                console.log("clear")
-            }}/>
+            <Toggle name={"Filter Options"}>
+                <Filter setFilterSet={setFilterSet}/>
+                <Sort 
+                priceAsc={() => {
+                    setSortBy("priceASC")
+                }}
+                priceDesc={() => {
+                    setSortBy("priceDESC")
+                }}
+                reset={() => {
+                    setSortBy("")
+                }}
+                />
+                <Clearfilter clear = {() => {
+                    setFilters("")
+                    console.log("clear")
+                }}/>
+            </Toggle>
             {isLoading ? <p>loading...</p>: <Propertylist properties={properties} />}
         </>
     )
