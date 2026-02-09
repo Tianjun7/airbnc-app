@@ -2,9 +2,24 @@ import Toggle from "./Toggle"
 import { useState } from "react"
 
 export default function Filter(){
-    const [maxPrice, setMaxPrice] = useState()
-    const [minPrice, setMinPrice] = useState()
-    const [propertyType, setPropertyType] = useState()
+    const [maxPrice, setMaxPrice] = useState('')
+    const [minPrice, setMinPrice] = useState('')
+    const [propertyType, setPropertyType] = useState("")
+
+    const handleChange = (e) => {
+        if(e.target.name === "maxPrice"){
+            setMaxPrice(e.target.value)
+            console.log(maxPrice)
+        }
+        else if(e.target.name === "minPrice"){
+            setMinPrice(e.target.value)
+            console.log(minPrice)
+        }
+        else if(e.target.name === "propertyType"){
+            setPropertyType(e.target.value)
+            console.log(propertyType)
+        }
+    }
 
     return(
         <>
