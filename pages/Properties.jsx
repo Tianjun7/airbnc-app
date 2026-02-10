@@ -16,7 +16,7 @@ export default function Properties(){
 
     const fetchProperties = async (sortBy) => {
         try{
-            const properties = await getProperties(sortBy)
+            const properties = await getProperties(sortBy, filters)
     
             setProperties(properties)
             setIsLoading(false)
@@ -33,7 +33,7 @@ export default function Properties(){
 
     useEffect(() => {
         fetchProperties(sortBy)
-    },[sortBy])
+    },[sortBy, filters])
 
     return(
         <>
