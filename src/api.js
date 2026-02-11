@@ -1,11 +1,13 @@
 import axios from "axios"
 
 export const getProperties = async(sortBy, filters) => {
-    const query = "https://airbnc-6t74.onrender.com/api/properties"
+    const query = "https://airbnc-6t74.onrender.com/api/properties?"
 
-    if(filters.maxPrice !== ''){
-        query += `?maxPrice=${filters.maxPrice}`
-    }
+    const {
+        data: { properties },
+    } = await axios.get(query)
+
+    return properties
 } 
 
 export const getProperty = async(id) => {
