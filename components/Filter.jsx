@@ -4,20 +4,17 @@ import { useState } from "react"
 export default function Filter({ setFilterSet }){
     const [maxPrice, setMaxPrice] = useState('')
     const [minPrice, setMinPrice] = useState('')
-    const [propertyType, setPropertyType] = useState("")
+    const [property_type, setproperty_type] = useState("")
 
     const handleChange = (e) => {
         if(e.target.name === "maxPrice"){
             setMaxPrice(e.target.value)
-            console.log(maxPrice)
         }
         else if(e.target.name === "minPrice"){
             setMinPrice(e.target.value)
-            console.log(minPrice)
         }
-        else if(e.target.name === "propertyType"){
-            setPropertyType(e.target.value)
-            console.log(propertyType)
+        else if(e.target.name === "property_type"){
+            setproperty_type(e.target.value)
         }
     }
 
@@ -47,8 +44,8 @@ export default function Filter({ setFilterSet }){
                 Property Type:
                 <input 
                 type="text"
-                name="propertyType"
-                value={propertyType}
+                name="property_type"
+                value={property_type}
                 onChange={handleChange}
                 />
             </label>
@@ -57,9 +54,9 @@ export default function Filter({ setFilterSet }){
                 setFilterSet({
                     maxPrice: maxPrice,
                     minPrice: minPrice,
-                    propertyType: propertyType
+                    property_type: property_type
                 })
-                console.log([maxPrice, minPrice, propertyType])
+                console.log([maxPrice, minPrice, property_type])
             }}>Apply Filters</button>
         </>
     )
