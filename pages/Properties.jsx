@@ -14,7 +14,7 @@ export default function Properties(){
     const [sortBy, setSortBy] = useState("")
     const [filters, setFilters] = useState({})
 
-    const fetchProperties = async (sortBy) => {
+    const fetchProperties = async () => {
         try{
             const properties = await getProperties(sortBy, filters)
     
@@ -32,7 +32,7 @@ export default function Properties(){
     }
 
     useEffect(() => {
-        fetchProperties(sortBy)
+        fetchProperties()
     },[sortBy, filters])
 
     return(
