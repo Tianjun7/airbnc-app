@@ -1,7 +1,19 @@
 import axios from "axios"
 
 export const getProperties = async(sortBy, filters) => {
-    const query = "https://airbnc-6t74.onrender.com/api/properties?"
+    let query = "https://airbnc-6t74.onrender.com/api/properties?"
+
+    for(const filter in filters){
+        console.log(filter)
+        console.log(filters[filter])
+        if(filters[filter] !== ""){
+            if(query[query.length - 1] !== "?"){
+                query += "&"
+            }
+            query += `${filter}=${filters[filter]}`
+            console.log(query)
+        }
+    }
 
     const {
         data: { properties },
